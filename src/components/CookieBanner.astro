@@ -1,0 +1,110 @@
+<div
+  class="cookie-drawer"
+  id="cookie-drawer"
+  data-cookie-drawer
+  hidden
+>
+  <!-- TOGGLE (linguetta) -->
+  <button
+    type="button"
+    class="cookie-drawer__toggle"
+    id="cookie-drawer-toggle"
+    data-cookie-toggle
+    aria-expanded="false"
+    aria-controls="cookie-drawer-panel"
+  >
+    <span class="cookie-drawer__toggle-label">Cookie</span>
+    <span class="cookie-drawer__toggle-dot" aria-hidden="true"></span>
+  </button>
+
+  <!-- PANEL -->
+  <div
+    class="cookie-drawer__panel"
+    id="cookie-drawer-panel"
+    data-cookie-panel
+    hidden
+    role="dialog"
+    aria-live="polite"
+    aria-label="Preferenze cookie"
+  >
+    <div class="cookie-drawer__inner">
+
+      <!-- CLOSE -->
+      <button
+        type="button"
+        class="cookie-drawer__close"
+        data-cookie-close
+        aria-label="Chiudi"
+      >
+        ×
+      </button>
+
+      <!-- COPY -->
+      <div class="cookie-banner__copy">
+        <p class="cookie-banner__eyebrow">Preferenze cookie</p>
+
+        <h3 class="cookie-banner__title">
+          Usiamo solo ciò che serve. Il resto lo scegli tu.
+        </h3>
+
+        <p class="cookie-banner__text">
+          Questo sito utilizza cookie tecnici necessari al funzionamento e,
+          solo con il tuo consenso, eventuali cookie statistici.
+        </p>
+
+        <div class="cookie-banner__links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/cookie-policy">Cookie Policy</a>
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="cookie-banner__actions">
+        <button class="btn btn-secondary" data-cookie-action="reject">
+          Rifiuta
+        </button>
+        <button class="btn btn-secondary" data-cookie-action="customize">
+          Personalizza
+        </button>
+        <button class="btn btn-primary" data-cookie-action="accept">
+          Accetta
+        </button>
+      </div>
+
+      <!-- PANEL SETTINGS -->
+      <div class="cookie-panel" id="cookie-panel" hidden>
+        <div class="cookie-panel__box">
+
+          <div class="cookie-panel__head">
+            <h4>Gestisci preferenze</h4>
+            <p>Puoi attivare solo ciò che desideri.</p>
+          </div>
+
+          <label class="cookie-option">
+            <span class="cookie-option__meta">
+              <strong>Cookie tecnici</strong>
+              <span>Sempre attivi</span>
+            </span>
+            <input type="checkbox" checked disabled />
+          </label>
+
+          <label class="cookie-option">
+            <span class="cookie-option__meta">
+              <strong>Cookie analytics</strong>
+              <span>Solo con consenso</span>
+            </span>
+            <input type="checkbox" id="cookie-analytics" />
+          </label>
+
+          <div class="cookie-panel__actions">
+            <button class="btn btn-secondary" data-cookie-action="save-selected">
+              Salva preferenze
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

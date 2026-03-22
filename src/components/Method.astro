@@ -1,0 +1,226 @@
+<section class="section" id="approccio">
+  <div class="container method-grid">
+    <div>
+      <div class="section-head left" data-reveal>
+        <p class="eyebrow">Metodo</p>
+        <h2>Come lavoro</h2>
+        <p>Non è solo un trattamento: è un percorso per stare meglio in modo concreto e progressivo.</p>
+      </div>
+
+      <div class="method-steps">
+        <article class="method-step method-step-card" data-reveal>
+          <span class="method-icon icon-shell" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 18c3.8 0 6.8-2.6 6.8-5.8S15.8 6.4 12 6.4 5.2 9 5.2 12.2c0 1.3.5 2.5 1.4 3.4l-.4 2.4 2.3-1c1 .6 2.1 1 3.5 1Z" />
+              <path d="M9.5 12h.01M12 12h.01M14.5 12h.01" class="method-accent" />
+            </svg>
+          </span>
+          <div>
+            <h3>Ascolto e valutazione iniziale</h3>
+            <p>Analizziamo insieme sintomi, abitudini e obiettivi per costruire un percorso su misura.</p>
+          </div>
+        </article>
+
+        <article class="method-step method-step-card" data-reveal>
+          <span class="method-icon icon-shell" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6.7 14.9c1.5-2.8 3.9-4.5 6.6-4.5 2.1 0 3.8 1 5 2.9" />
+              <path d="M8.4 14.4c.9-.9 2-1.5 3.3-1.5 1.2 0 2.4.5 3.4 1.5" />
+              <path d="M9.4 8.3 8.5 6.7M12 7.5V5.8M14.6 8.3l.9-1.6" class="method-accent" />
+            </svg>
+          </span>
+          <div>
+            <h3>Trattamento mirato</h3>
+            <p>Intervento specifico basato sulle tue esigenze reali, senza approcci standardizzati.</p>
+          </div>
+        </article>
+
+        <article class="method-step method-step-card" data-reveal>
+          <span class="method-icon icon-shell" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="7.2" y="6.8" width="9.8" height="10.8" rx="2" />
+              <path d="M9.8 10.7h4.6M9.8 13.6h4.6" />
+              <path d="m5.7 10.8-1.4 1.2 1.4 1.2" class="method-accent" />
+            </svg>
+          </span>
+          <div>
+            <h3>Rieducazione e indicazioni pratiche</h3>
+            <p>Esercizi e consigli utili per prolungare i benefici anche tra una seduta e l'altra.</p>
+          </div>
+        </article>
+
+        <article class="method-step method-step-card" data-reveal>
+          <span class="method-icon icon-shell" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 6.2a5.8 5.8 0 1 1-5.8 5.8" />
+              <path d="M6.2 8.6V6.2h2.4" />
+              <path d="M12 9.2v3l2.2 1.3" class="method-accent" />
+            </svg>
+          </span>
+          <div>
+            <h3>Follow-up e mantenimento</h3>
+            <p>Monitoraggio dei progressi e adattamento del lavoro nel tempo.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <aside class="objective-card" data-reveal>
+      <p class="eyebrow inverse">Obiettivo di percorso</p>
+      <h3>Un corpo più equilibrato, mobile e funzionale.</h3>
+      <p>Un lavoro progressivo per stare meglio oggi e mantenere i risultati nel tempo.</p>
+      <ul class="objective-list">
+        <li>Ridurre tensioni</li>
+        <li>Migliorare postura</li>
+        <li>Aumentare mobilità</li>
+        <li>Continuare nel tempo</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .method-steps {
+    gap: 0.95rem;
+  }
+
+  .method-step-card {
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --card-border: rgba(133, 216, 220, 0.16);
+    --card-shadow: 0 10px 30px rgba(20, 35, 35, 0.035);
+
+    position: relative;
+    overflow: hidden;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.18rem 1rem 1.08rem;
+    border-radius: 1.45rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition:
+      opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(.22,.61,.36,1),
+      border-color 0.45s cubic-bezier(.22,.61,.36,1),
+      background 0.45s cubic-bezier(.22,.61,.36,1);
+  }
+
+  .method-step-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top right, rgba(133, 216, 220, 0.09), transparent 34%),
+      linear-gradient(180deg, rgba(255,255,255,0.14), transparent 42%);
+    opacity: 0.96;
+  }
+
+  .method-step-card::after {
+    content: "";
+    position: absolute;
+    inset-inline: 1rem;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(133, 216, 220, 0.22), transparent);
+    pointer-events: none;
+  }
+
+  .method-icon {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .method-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    stroke: currentColor;
+    stroke-width: 1.85;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .method-icon .method-accent {
+    opacity: 0.6;
+  }
+
+  .method-step-card h3,
+  .method-step-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .method-step-card h3 {
+    margin-bottom: 0.56rem;
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .method-step-card:hover {
+      transform: translate3d(0, -4px, 0);
+      border-color: rgba(133, 216, 220, 0.3);
+      box-shadow:
+        0 18px 36px rgba(20, 35, 35, 0.055),
+        0 6px 18px rgba(46, 164, 180, 0.06);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .method-step-card:hover .method-icon {
+      transform: translate3d(0, -2px, 0) scale(1.03);
+    }
+  }
+
+  @media (min-width: 680px) {
+    .method-steps {
+      gap: 1.1rem;
+    }
+
+    .method-step-card {
+      gap: 1.1rem;
+      padding: 1.3rem 1.15rem 1.18rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method-steps {
+      gap: 1.2rem;
+    }
+
+    .method-step-card {
+      gap: 1.2rem;
+      padding: 1.45rem 1.35rem;
+      border-radius: 1.9rem;
+    }
+
+    .method-icon svg {
+      width: 1.65rem;
+      height: 1.65rem;
+    }
+
+    .method-step-card h3 {
+      font-size: 1.18rem;
+      max-width: 24ch;
+    }
+
+    .method-step-card p {
+      font-size: 0.98rem;
+      line-height: 1.62;
+      max-width: 54ch;
+    }
+  }
+
+  @media (max-width: 389px) {
+    .method-step-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

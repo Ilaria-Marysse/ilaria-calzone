@@ -1,0 +1,618 @@
+---
+const treatments = [
+  {
+    title: "Massaggio Linfodrenante",
+    badge: "Leggerezza",
+    description:
+      "Stimola il sistema linfatico favorendo il drenaggio dei liquidi, riducendo gonfiore e sensazione di pesantezza.",
+    benefits: [
+      "Stimola il sistema linfatico",
+      "Riduce gonfiore e ritenzione",
+      "Favorisce il detox naturale"
+    ],
+    imageClass: "service-1"
+  },
+  {
+    title: "Massaggio Drenante",
+    badge: "Flusso",
+    description:
+      "Tecnica che aiuta a contrastare ritenzione idrica e ristagni, migliorando la circolazione e la leggerezza dei tessuti.",
+    benefits: [
+      "Contrasta ristagni di liquidi",
+      "Migliora la circolazione",
+      "Dona leggerezza immediata"
+    ],
+    imageClass: "service-2"
+  },
+  {
+    title: "Massaggio Decontratturante",
+    badge: "Release",
+    description:
+      "Agisce in profondità sulle tensioni muscolari del corpo, alleviando dolore e rigidità localizzate.",
+    benefits: [
+      "Scioglie tensioni muscolari",
+      "Riduce dolore e rigidità",
+      "Migliora la mobilità"
+    ],
+    imageClass: "service-3"
+  },
+  {
+    title: "Massaggio Sportivo",
+    badge: "Performance",
+    description:
+      "Prepara il muscolo allo sforzo e ne facilita il recupero, migliorando performance e prevenendo infortuni.",
+    benefits: [
+      "Prepara il muscolo allo sforzo",
+      "Accelera il recupero",
+      "Previene infortuni"
+    ],
+    imageClass: "service-4"
+  },
+  {
+    title: "Massaggio Miofasciale",
+    badge: "Balance",
+    description:
+      "Lavora sulle fasce muscolari per liberare restrizioni, migliorare la mobilità e riequilibrare il corpo nella sua interezza.",
+    benefits: [
+      "Libera le tensioni profonde",
+      "Migliora elasticità e movimento",
+      "Riequilibra le catene muscolari"
+    ],
+    imageClass: "service-5"
+  },
+  {
+    title: "Massaggio Connettivale",
+    badge: "Tonicità",
+    description:
+      "Stimola i tessuti profondi e la circolazione riflessa, favorendo l'elasticità, la funzionalità e il tono.",
+    benefits: [
+      "Stimola i tessuti profondi",
+      "Riattiva la microcircolazione",
+      "Migliora tonicità ed elasticità"
+    ],
+    imageClass: "service-6"
+  },
+  {
+    title: "Massaggio Svedese",
+    badge: "Armonia",
+    description:
+      "Tecnica classica con movimenti fluidi e avvolgenti che favoriscono rilassamento e benessere generale.",
+    benefits: [
+      "Favorisce rilassamento globale",
+      "Migliora la circolazione",
+      "Riduce stress e tensioni"
+    ],
+    imageClass: "service-7"
+  },
+  {
+    title: "Massaggio Rilassante",
+    badge: "Calma",
+    description:
+      "Riduce stress e tensioni, accompagnando corpo e mente verso uno stato di calma profonda.",
+    benefits: [
+      "Calma il sistema nervoso",
+      "Riduce stress e affaticamento",
+      "Promuove benessere generale"
+    ],
+    imageClass: "service-8"
+  },
+  {
+    title: "Coppettazione",
+    badge: "Stimolo",
+    description:
+      "Tecnica che utilizza coppette per stimolare la circolazione, sciogliere tensioni e ossigenare i tessuti.",
+    benefits: [
+      "Stimola la circolazione",
+      "Decontrae i tessuti",
+      "Favorisce il recupero muscolare"
+    ],
+    imageClass: "service-9"
+  },
+  {
+    title: "Applicazione Kinesio-Taping",
+    badge: "Supporto",
+    description:
+      "Supporta muscoli e articolazioni senza limitarne il movimento, favorendo recupero e stabilità.",
+    benefits: [
+      "Supporta muscoli e articolazioni",
+      "Riduce dolore e infiammazione",
+      "Favorisce il movimento naturale"
+    ],
+    imageClass: "service-10"
+  },
+  {
+    title: "Rieducazione Motoria",
+    badge: "Rinascita",
+    description:
+      "Percorso personalizzato per recuperare movimento, coordinazione e funzionalità dopo traumi o disfunzioni.",
+    benefits: [
+      "Recupera mobilità e funzione",
+      "Migliora coordinazione e postura",
+      "Previene recidive"
+    ],
+    imageClass: "service-11"
+  }
+];
+---
+
+<section class="section treatments" id="trattamenti">
+  <div class="container">
+    <div class="section-head treatments__head">
+      <p class="eyebrow">Trattamenti</p>
+      <h2>Trattamenti personalizzati per il tuo benessere</h2>
+      <p>
+        Ogni trattamento viene scelto e adattato in base alle tue esigenze.
+        L’obiettivo non è solo alleviare il sintomo, ma aiutarti a ritrovare
+        equilibrio, leggerezza e funzionalità in modo concreto e duraturo.
+      </p>
+    </div>
+
+    <div class="treatments__mobile-ui" aria-hidden="true">
+      <span class="treatments__hint">Scorri per scoprire</span>
+      <span class="treatments__count"><span data-current>1</span> / {treatments.length}</span>
+    </div>
+
+    <div class="treatments__track" data-track>
+      {treatments.map((item, index) => (
+        <article class="treatment-card" data-card data-index={index} style={`--delay:${index * 70}ms`}>
+          <div class={`treatment-card__media service-image ${item.imageClass}`}></div>
+
+          <div class="treatment-card__body">
+            <span class="treatment-card__badge">{item.badge}</span>
+
+            <div class="treatment-card__copy">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+
+            <ul class="treatment-card__list">
+              {item.benefits.map((benefit) => <li>{benefit}</li>)}
+            </ul>
+
+            <a class="btn btn-primary treatment-card__btn" href="#contatti">Prenota</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="treatments__dots" aria-label="Navigazione trattamenti">
+      {treatments.map((_, index) => (
+        <button
+          type="button"
+          class={`treatments__dot${index === 0 ? " is-active" : ""}`}
+          data-dot={index}
+          aria-label={`Vai al trattamento ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+
+    <p class="treatments__note">
+      Durata indicativa del trattamento: 50 minuti. I prezzi non sono indicati online perché ogni seduta viene definita in modo personalizzato.
+    </p>
+  </div>
+</section>
+
+<style>
+  .treatments__head,
+  .treatments__note,
+  .treatment-card {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.7s cubic-bezier(.22,.61,.36,1),
+      transform 0.7s cubic-bezier(.22,.61,.36,1);
+  }
+
+  .treatments__head.is-visible,
+  .treatments__note.is-visible,
+  .treatment-card.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .treatments__head {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .treatments__mobile-ui {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .treatments__hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(42, 168, 174, 0.07);
+    border: 1px solid rgba(42, 168, 174, 0.14);
+    color: var(--text-soft);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .treatments__hint::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+
+  .treatments__count {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .treatments__count [data-current] {
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+
+  .treatments__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .treatments__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .treatment-card {
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.4rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 28px rgba(16, 35, 35, 0.05);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .treatment-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top right, rgba(42, 168, 174, 0.07), transparent 34%),
+      linear-gradient(180deg, rgba(255,255,255,0.04), transparent 42%);
+  }
+
+  .treatment-card__media {
+    aspect-ratio: 16 / 9;
+    position: relative;
+  }
+
+  .treatment-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(13,85,89,0.02), rgba(13,85,89,0.14)),
+      linear-gradient(180deg, transparent 45%, rgba(7,24,24,0.12));
+  }
+
+  .treatment-card__body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.95rem;
+    padding: 1rem;
+  }
+
+  .treatment-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.46rem 0.72rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(249,252,252,0.92));
+    border: 1px solid rgba(42, 168, 174, 0.18);
+    color: var(--primary-dark);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.96),
+      0 6px 14px rgba(42, 168, 174, 0.07);
+  }
+
+  .treatment-card__badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+
+  .treatment-card__copy h3 {
+    margin: 0 0 0.45rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-wrap: balance;
+  }
+
+  .treatment-card__copy p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    line-height: 1.62;
+  }
+
+  .treatment-card__list {
+    margin: 0;
+    padding: 0.95rem 0 0;
+    list-style: none;
+    display: grid;
+    gap: 0.68rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .treatment-card__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.68rem;
+    color: var(--text-soft);
+    font-size: 0.89rem;
+    line-height: 1.5;
+  }
+
+  .treatment-card__list li::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    margin-top: 0.1rem;
+    border-radius: 50%;
+    background: rgba(42, 168, 174, 0.12);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231a7c80' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .treatment-card__btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+
+  .treatments__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.42rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .treatments__dot {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(42, 168, 174, 0.22);
+    transition: width 0.28s cubic-bezier(.22,.61,.36,1), background 0.28s ease;
+    cursor: pointer;
+  }
+
+  .treatments__dot.is-active {
+    width: 20px;
+    background: var(--primary);
+  }
+
+  .treatments__note {
+    margin: 1.7rem auto 0;
+    max-width: 640px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* =========================
+   TRACK
+   ========================= */
+.treatments__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  /* FIX iOS */
+  scroll-padding-inline: 0.01px;
+}
+
+/* =========================
+   CARD
+   ========================= */
+.treatment-card {
+  flex: 0 0 84%;
+  scroll-snap-align: start;
+
+  /* FIX iOS */
+  scroll-snap-stop: always;
+}
+/* iOS scroll fix */
+.treatments__track { scroll-padding-inline: 0.01px; }
+.treatment-card { scroll-snap-stop: always; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .treatment-card:hover {
+      transform: translate3d(0, -4px, 0);
+      border-color: rgba(42, 168, 174, 0.22);
+      box-shadow:
+        0 16px 36px rgba(16, 35, 35, 0.09),
+        0 6px 16px rgba(42, 168, 174, 0.06);
+    }
+  }
+
+  @media (min-width: 640px) {
+    .treatments__track {
+      grid-auto-columns: 48%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .treatments__mobile-ui,
+    .treatments__dots {
+      display: none;
+    }
+
+    .treatments__track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-flow: row;
+      gap: 1.35rem;
+      overflow: visible;
+      padding: 0;
+      scroll-snap-type: none;
+    }
+
+    .treatment-card {
+      min-height: 100%;
+      border-radius: 1.75rem;
+    }
+
+    .treatment-card__body {
+      padding: 1.2rem;
+    }
+
+    .treatment-card__copy h3 {
+      font-size: 1.18rem;
+    }
+
+    .treatment-card__copy p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .treatments__track {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .treatments__head,
+    .treatments__note,
+    .treatment-card {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    if (typeof window === "undefined") return;
+
+    var section = document.getElementById("trattamenti");
+    if (!section) return;
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var head = section.querySelector(".treatments__head");
+    var note = section.querySelector(".treatments__note");
+    var track = section.querySelector("[data-track]");
+    var cards = Array.prototype.slice.call(section.querySelectorAll("[data-card]"));
+    var dots = Array.prototype.slice.call(section.querySelectorAll("[data-dot]"));
+    var current = section.querySelector("[data-current]");
+
+    function setActive(index) {
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("is-active", i === index);
+      });
+      if (current) current.textContent = String(index + 1);
+    }
+
+    if (reduceMotion) {
+      if (head) head.classList.add("is-visible");
+      if (note) note.classList.add("is-visible");
+      cards.forEach(function (card) {
+        card.classList.add("is-visible");
+      });
+    } else {
+      var revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14,
+        rootMargin: "0px 0px -6% 0px"
+      });
+
+      if (head) revealObserver.observe(head);
+      if (note) revealObserver.observe(note);
+      cards.forEach(function (card) {
+        revealObserver.observe(card);
+      });
+    }
+
+    if (!track || !cards.length || !dots.length) return;
+
+    var activeObserver = new IntersectionObserver(function (entries) {
+      var visible = entries
+        .filter(function (entry) { return entry.isIntersecting; })
+        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+
+      if (visible.length) {
+        var index = Number(visible[0].target.getAttribute("data-index") || 0);
+        setActive(index);
+      }
+    }, {
+      root: window.innerWidth < 1024 ? track : null,
+      threshold: [0.55, 0.7, 0.85]
+    });
+
+    cards.forEach(function (card) {
+      activeObserver.observe(card);
+    });
+
+    dots.forEach(function (dot, index) {
+      dot.addEventListener("click", function () {
+        var card = cards[index];
+        if (!card) return;
+
+        card.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          inline: "start",
+          block: "nearest"
+        });
+
+        setActive(index);
+      });
+    });
+
+    setActive(0);
+  })();
+</script>
