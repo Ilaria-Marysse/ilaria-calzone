@@ -388,6 +388,15 @@ const testimonials = [
     }
   }
 
+  @media (max-width: 1023px) {
+    .testimonials__head,
+    .testimonial-slide {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .testimonials__head,
     .testimonial-slide {
@@ -439,14 +448,17 @@ const testimonials = [
         rootMargin: isMobile ? "0px" : "0px 0px -6% 0px"
       });
 
-      // Rende la prima card subito visibile senza aspettare l'observer
-      if (cards[0]) cards[0].classList.add("is-visible");
-
       if (head) revealObserver.observe(head);
-      cards.forEach(function (card, i) {
-        if (i === 0) return; // già visibile
-        revealObserver.observe(card);
-      });
+
+      if (isMobile) {
+        cards.forEach(function (card) {
+          card.classList.add("is-visible");
+        });
+      } else {
+        cards.forEach(function (card) {
+          revealObserver.observe(card);
+        });
+      }
     }
 
     if (!track || !cards.length || !dots.length) return;
