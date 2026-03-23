@@ -559,6 +559,8 @@ const treatments = [
         card.classList.add("is-visible");
       });
     } else {
+      var isMobile = window.innerWidth < 1024;
+
       var revealObserver = new IntersectionObserver(function (entries, observer) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -567,13 +569,17 @@ const treatments = [
           }
         });
       }, {
-        threshold: 0.14,
-        rootMargin: "0px 0px -6% 0px"
+        threshold: isMobile ? 0.01 : 0.14,
+        rootMargin: isMobile ? "0px" : "0px 0px -6% 0px"
       });
+
+      // Rende la prima card subito visibile senza aspettare l'observer
+      if (cards[0]) cards[0].classList.add("is-visible");
 
       if (head) revealObserver.observe(head);
       if (note) revealObserver.observe(note);
-      cards.forEach(function (card) {
+      cards.forEach(function (card, i) {
+        if (i === 0) return; // già visibile
         revealObserver.observe(card);
       });
     }
