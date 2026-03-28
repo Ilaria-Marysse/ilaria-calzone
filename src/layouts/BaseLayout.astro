@@ -6,15 +6,15 @@ import CookieBanner from "../components/CookieBanner.astro";
 import cookieBannerScript from "../scripts/cookie-banner.js?url";
 
 const siteUrl = "https://www.ilariacalzone.it";
-const defaultOgImage = `${siteUrl}/og-image.jpg`;
 
 const {
   title = "Ilaria Calzone Massoterapista a Varese | Massaggi e Rieducazione Motoria",
   description = "Massoterapista a Varese specializzata in massaggi e rieducazione motoria. Trattamenti personalizzati per cervicale, mal di schiena, tensioni muscolari, postura e stress. Anche a domicilio, su appuntamento.",
-  ogImage = defaultOgImage
+  ogImage = "/og-image.jpg"
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedOgImage = new URL(ogImage, siteUrl).toString();
 ---
 <!doctype html>
 <html lang="it">
@@ -27,36 +27,41 @@ const canonical = new URL(Astro.url.pathname, siteUrl).toString();
     <link rel="canonical" href={canonical} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/ic_favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/ic_favicon-16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <meta name="theme-color" content="#2aa8ae" />
 
+    <!-- Open Graph -->
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Ilaria Calzone" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:secure_url" content={resolvedOgImage} />
     <meta property="og:image:alt" content="Ilaria Calzone - Massoterapista & Chinesiologa" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={resolvedOgImage} />
     <meta name="twitter:image:alt" content="Ilaria Calzone - Massoterapista & Chinesiologa" />
   </head>
 
